@@ -1,13 +1,33 @@
+import static org.junit.Assert.assertEquals;
+
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
+import FamilyTask.Family;
+
 public class TDD {
+	Family fam;
+	
+	@Before
+	public void setUp() {
+		 fam = new Family();
+	}
 
     @Test
     public void test(){
-    	Family fam = new Family();
     	fam.setParentOf("Vera","George");
     	fam.isFemale("Vanessa");
+    	fam.isFemale("George");
     	fam.female("Vanessa");
-    	const fam = new Family();
+    	
+    	assertEquals(true, fam.isFemale("Vanessa"));
+    	assertEquals("Vera", fam.getParentOf("George"));
+    	
+    }
+    
+    @After
+    public void tearDown() {
+    	
     }
 }
