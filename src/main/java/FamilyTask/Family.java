@@ -12,7 +12,6 @@ public class Family {
 
 	public void creatingFamily(){
 		FamilyModel newFamily = new FamilyModel("");
-	//	newFamily.addParent();
 	}
 	
 	public boolean male(String name) {
