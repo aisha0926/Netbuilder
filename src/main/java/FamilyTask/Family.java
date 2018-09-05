@@ -81,20 +81,20 @@ public class Family {
 	public List<String> getChildrenOf(String parent) {
 
 		List<String> parentsList = new ArrayList<>();
-		
+
 		Set<String> childs = childVsParent.keySet();
-		
-		for (String child:childs) {
-			
+
+		for (String child : childs) {
+
 			List<String> parents = childVsParent.get(child);
-			
+
 			if (parents.contains(parent)) {
 
 				parentsList.add(child);
 			}
-			
+
 		}
-		
+
 		return parentsList;
 	}
 
