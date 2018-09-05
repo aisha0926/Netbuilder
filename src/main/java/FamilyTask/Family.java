@@ -1,14 +1,54 @@
 package FamilyTask;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class Family {
-	public static void main(String[] args) {
-		FamilyModel a = new FamilyModel();
-		a.setName("George");
-		a.setGender(Gender.MALE);
+
+	private boolean male;
+	private boolean female;
+	private boolean parentOf;
+	private String[] parents;
+	private String[] children;
+	
+	public boolean male(String name) {
+		return false;
 	}
 	
+	public boolean female() {
+		return false;
+	}
+	
+	public boolean isMale() {
+		return male;
+	}
 
+	public void setMale(boolean male) {
+		this.male = male;
+	}
+
+	public boolean isFemale() {
+		return female;
+	}
+
+	public void setFemale(boolean female) {
+		this.female = female;
+	}
+
+	public boolean isParentOf() {
+		return parentOf;
+	}
+
+	public void setParentOf(boolean parentOf) {
+		this.parentOf = parentOf;
+	}
+
+	public String[] getParents() {
+		return parents;
+	}
+
+	public String[] getChildren() {
+		return children;
+	}
+	
+	
+	
+	
 }

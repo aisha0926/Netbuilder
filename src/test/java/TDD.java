@@ -4,26 +4,31 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import FamilyTask.Family;
+import FamilyTask.FamilyModel;
+import FamilyTask.Gender;
 
 public class TDD {
-	Family fam;
+	FamilyModel fam;
 	
 	@Before
 	public void setUp() {
-		 fam = new Family();
+		 fam = new FamilyModel();
 	}
 
     @Test
     public void test(){
-    	fam.setParentOf("Vera","George");
-    	fam.isFemale("Vanessa");
-    	fam.isFemale("George");
-    	fam.female("Vanessa");
+//    	fam.setParentOf("Vera","George");
+//    	fam.isFemale("Vanessa");
+//    	fam.isFemale("George");
+//    	fam.female("Vanessa");
     	
-    	assertEquals(true, fam.isFemale("Vanessa"));
-    	assertEquals("Vera", fam.getParentOf("George"));
+//    	assertEquals(true, fam.isFemale("Vanessa"));
+//    	assertEquals("Vera", fam.getParentOf("George"));
+    	fam.setName("George");
+    	fam.setGender(Gender.MALE);
     	
+    	System.out.println(fam.getGender());
+    	assertEquals(Gender.MALE, fam.getGender());
     }
     
     @After
