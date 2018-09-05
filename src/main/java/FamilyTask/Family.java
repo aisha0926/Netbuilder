@@ -1,21 +1,20 @@
 package FamilyTask;
 
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
+import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Set;
 
 public class Family {
-	
-	private Set<String> females;
-	private Set<String> males;
-	private Map<String, Set<String>> childVsParent;
-	
 
+	private List<String> females;
+	private List<String> males;
+	private Map<String, List<String>> childVsParent;
+	
 	public Family() {
-		females = new HashSet<String>();
-		males = new HashSet<>();
+		females = new ArrayList<>();
+		males = new ArrayList<>();
 		childVsParent = new HashMap<>();
 	}
 
@@ -25,16 +24,17 @@ public class Family {
 			return false;
 		}
 
-		Set<Entry<String, Set<String>>> entries = childVsParent.entrySet();
+		Set<String> childs = childVsParent.keySet();
 
-		for (Entry<String, Set<String>> entry : entries) {
+		for (String child : childs) {
 
-			Set<String> parents = entry.getValue();
+			List<String> parents = childVsParent.get(child);
 
 			if (parents.contains(name)) {
 
 				for (String parent : parents) {
 					if (!parent.equals(name)) {
+
 						return female(parent);
 					}
 				}
@@ -62,45 +62,47 @@ public class Family {
 
 	public boolean setParentOf(String child, String parent) {
 
-		Set<String> allParents = getParentsOf(parent);
+		List<String> allParents = getParentsOf(parent);
 
 		if (allParents != null && allParents.contains(child)) {
 
 			return false;
 		}
 
-		Set<String> parentSet = childVsParent.get(child);
+		List<String> parentSet = childVsParent.get(child);
 		if (parentSet == null) {
-			parentSet = new HashSet<>();
+			parentSet = new ArrayList<>();
 			childVsParent.put(child, parentSet);
 		}
 
 		return parentSet.add(parent);
 	};
 
-	public Set<String> getChildrenOf(String parent) {
+	public List<String> getChildrenOf(String parent) {
 
-		Set<String> parentsSet = new HashSet<>();
-
-		Set<Entry<String, Set<String>>> entries = childVsParent.entrySet();
-
-		for (Entry<String, Set<String>> entry : entries) {
-
-			Set<String> parents = entry.getValue();
-
+		List<String> parentsList = new ArrayList<>();
+		
+		Set<String> childs = childVsParent.keySet();
+		
+		for (String child:childs) {
+			
+			List<String> parents = childVsParent.get(child);
+			
 			if (parents.contains(parent)) {
 
-				parentsSet.add(entry.getKey());
+				parentsList.add(child);
 			}
-
+			
 		}
-		return parentsSet;
+		
+		return parentsList;
 	}
 
-	public Set<String> getParentsOf(String child) {
+	public List<String> getParentsOf(String child) {
 		return childVsParent.get(child);
 
 	}
+
 
 }
 
