@@ -7,7 +7,7 @@ import org.junit.Test;
 
 import FamilyTask.Family;
 
-public class TDD {
+public class FamilyTreeTest {
 	Family fam;
 	
 	@Before
@@ -44,7 +44,10 @@ public class TDD {
     	fam.setParentOf("Frank", "July");
     	fam.setParentOf("Frank", "Dylan");
     	
-    	assertEquals("July", fam.getChildrenOf("Morgan"));
+    	System.out.println(fam.getChildrenOf("Morgan").get(0));
+    	assertEquals("July", fam.getChildrenOf("Morgan").get(0));
+    	assertEquals("July, Dylan", fam.getParentsOf("Frank"));
+    	
 
     }
     
