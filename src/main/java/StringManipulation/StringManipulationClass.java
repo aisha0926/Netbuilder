@@ -30,6 +30,7 @@ public class StringManipulationClass {
 		ArrayList<Integer> characterList = new ArrayList<Integer>();
 		ArrayList<String> array = new ArrayList<String>();
 		
+		
 		for (char loopingThroughTheArray : convertedCharacters) {
             int individualStringValues = (int) loopingThroughTheArray;
             int asciiLowerCaseStartingPoint = 96;
@@ -39,6 +40,7 @@ public class StringManipulationClass {
             if (individualStringValues <= 122 & individualStringValues >= 97){
             	test = individualStringValues - asciiLowerCaseStartingPoint;
             	characterList.add(0, test);
+            	//array.add(String.valueOf(test));
             	array.add(String.valueOf(test));
                 
             } 
@@ -49,6 +51,8 @@ public class StringManipulationClass {
                
             }
         }
+		
+		String formattedString = array.toString().replace(",","").replace("[","").replace("]","");
 		
 		return array;
 	}
