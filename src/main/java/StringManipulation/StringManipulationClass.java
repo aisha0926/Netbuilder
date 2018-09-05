@@ -8,7 +8,6 @@ public class StringManipulationClass {
 		char[] convertedCharacters = stringValue.toCharArray();
 		ArrayList<String> stringArray = new ArrayList<String>();
 		
-		
 		for (char loopingThroughTheArray : convertedCharacters) {
             int individualStringValues = (int) loopingThroughTheArray;
             int asciiLowerCaseStartingPoint = 96;
