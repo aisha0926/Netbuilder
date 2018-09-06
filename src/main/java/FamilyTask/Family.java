@@ -53,9 +53,9 @@ public class Family {
 
 		Set<String> childs = childParentMap.keySet();
 
-		for (String child : childs) {
+		for (String childLoop : childs) {
 
-			List<String> parents = childParentMap.get(child);
+			List<String> parents = childParentMap.get(childLoop);
 
 			if (parents.contains(name)) {
 
@@ -117,7 +117,6 @@ public class Family {
 			}
 
 		}
-
 		return children;
 	}
 
