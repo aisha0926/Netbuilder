@@ -19,23 +19,22 @@ public class FamilyTreeTest {
 	
 	@Test
 	public void checkingGender() {
-		fam.setParentOf("July", "Morgan");
+		
     	fam.setParentOf("Frank", "Morgan");
     	fam.setParentOf("Frank", "Dylan");
     	fam.setParentOf("Joy", "Frank");
     	fam.setParentOf("Jennifer", "Morgan");
     	fam.setParentOf("Morgan", "Frank");
     	
-    	
-    	fam.isMale("Dylan");
     	fam.male("Dylan");
+    	fam.female("Morgan");
     	
     	assertEquals(false, fam.male("Morgan"));
     	assertEquals(true, fam.isFemale("Morgan"));
-    	//assertEquals(true, fam.female("Morgan"));
+    	assertEquals(true, fam.female("Morgan"));
     	assertEquals(false, fam.isMale("Morgan"));
     	assertEquals(false, fam.isFemale("Dylan"));
-    	//assertEquals(true, fam.isMale("Dylan"));
+    	assertEquals(true, fam.isMale("Dylan"));
     	
 	}
 
@@ -46,12 +45,18 @@ public class FamilyTreeTest {
     	fam.setParentOf("Frank", "July");
     	fam.setParentOf("Frank", "Dylan");
     	
-    	System.out.println(fam.getChildrenOf("Morgan").get(0));
-    	assertEquals("July", fam.getChildrenOf("Morgan").get(0));
-    	//assertEquals("July, Dylan", fam.getParentsOf("Frank"));
-    	assertThat(fam.getChildrenOf("Morgan"), hasItems("July"));
     	
+    	assertEquals("July", fam.getChildrenOf("Morgan").get(0));
+    	assertThat(fam.getChildrenOf("Morgan"), hasItems("July"));
+    }
+    
+    @Test
+    public void checkingParent(){
+    	
+    	fam.setParentOf("July", "Morgan");
 
+
+    	assertEquals("Morgan", fam.getParentsOf("July").get(0));
     }
     
 }
